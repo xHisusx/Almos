@@ -1,5 +1,21 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<body>
+
+  <div class="ui sidebar inverted vertical menu visible">
+    {{#link-to 'search' tagName="a"}}
+    <a class="item" href="search">Поиск</a>
+    {{/link-to}}
+
+    {{#link-to 'catalog' tagName="a"}}
+    <a class="item" href="catalog">Каталог</a>
+    {{/link-to}}
+
+    {{#link-to 'download' tagName="a"}}
+    <a class="item" href="download">Прайс</a>
+    {{/link-to}}
+  </div>
+  <div class="pusher">
+    <!-- Site content !-->
+  </div>
+</body>
 
 {{outlet}}
