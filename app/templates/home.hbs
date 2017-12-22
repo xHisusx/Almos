@@ -1,0 +1,60 @@
+<body>
+    <style>
+      body {background-color:#eeeeee;}
+
+      .button-warp {
+      width: 65%;
+      height: 65%;
+      display: flex;
+      background-color:#eeeeee
+      }
+
+      .nav-button {
+        width: 20%;
+        height: 40%;
+        margin: auto;
+        display: flex;
+
+        border-width: 3px;
+        border-style: solid;
+        border-radius: 9px;
+
+      }
+
+      .icon-warp {
+        margin: auto;
+        color: black;
+      }
+      a:link, a:visited, a:hover, a:active {
+        text-decoration: none;
+        color: #2f2f2f;
+      }
+
+    </style>
+
+<div class="button-warp">
+  <div class="nav-button">
+    <a class="icon-warp">
+        {{#link-to 'catalog' tagName="a"}}
+      <i class="fas fa-bars fa-7x"></i>
+        {{/link-to}}
+
+    </a>
+  </div>
+  <div class="nav-button">
+    <a class="icon-warp">
+      {{#link-to 'search' tagName="a"}}
+      <i class="fas fa-search fa-7x"></i>
+      {{/link-to}}
+    </a>
+  </div>
+  <div class="nav-button">
+    <a class="icon-warp">
+      {{#link-to 'download' tagName="a"}}
+      <i class="fas fa-info fa-7x"></i>
+      {{/link-to}}
+    </a>
+  </div>
+</div>
+</body>
+{{outlet}}

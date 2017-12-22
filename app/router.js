@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('catalog');
   this.route('search');
   this.route('download');
+  this.route('home');
 });
 
 export default Router;
