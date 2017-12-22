@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('search');
   this.route('download');
   this.route('home');
+  this.route('404', { path: '/*path' });
 });
 
 export default Router;
