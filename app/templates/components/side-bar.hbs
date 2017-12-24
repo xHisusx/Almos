@@ -1,14 +1,7 @@
 <!-- includes sidebar and standard structure-component -->
 
 <style>
-  .flexbox {
-    display: flex;
-  }
 
-  .sidebar {
-    flex: 0 0 auto;
-    width: 260px;
-  }
 
   .ui.container {
    margin-left: 3em !important;
@@ -61,25 +54,25 @@
   }
 </style>
 
-<div class="flexbox">
+
   <div class="sidebar">
     <div class="ui left vertical inverted visible sidebar menu">
       <div class="logo">
-        <div style="margin-top:30px;margin-left:auto;margin-right:auto;width:calc(50% - 10px);color:white;">
+        <div style="margin-top:30px;margin-left:auto;margin-right:auto;width:calc(50% - 25px);color:white;">
           <i class="fab fa-adn fa-7x"></i>
         </div>
       </div>
       <div class="items-list">
-      {{#link-to 'search' tagName="a"}}
-      <a class="item" href="search">Поиск</a>
-      {{/link-to}}
-
       {{#link-to 'catalog' tagName="a"}}
       <a class="item" href="catalog">Каталог</a>
       {{/link-to}}
 
       {{#link-to 'download' tagName="a"}}
-      <a class="item" href="download">Контакт</a>
+      <a class="item" href="download">Прайс</a>
+      {{/link-to}}
+
+      {{#link-to 'search' tagName="a"}}
+      <a class="item" href="search">Контакты</a>
       {{/link-to}}
       </div>
       <h4 class="ui inverted horizontal divider header">Ваша корзина</h4>
@@ -91,7 +84,7 @@
         </div>
       </div>
       <div class="buy-button">
-        <div class="positive ui animated button" tabindex="0">
+        <div class="ui green animated disabled button" tabindex="0">
           <div class="visible content">Оформить</div>
           <div class="hidden content">
             <i class="right arrow icon"></i>
@@ -100,5 +93,3 @@
       </div>
     </div>
   </div>
-  {{struct-comp-grid-one-column}}
-</div>

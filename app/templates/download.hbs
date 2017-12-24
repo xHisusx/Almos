@@ -1,9 +1,26 @@
 <style>
   body {background-color: #eeeeee;}
+
+  .flexbox {
+    display: flex;
+  }
+
+  .sidebar {
+    flex: 0 0 auto;
+    width: 260px;
+  }
+  .main {
+    flex: 1 1 auto;
+  }
 </style>
 
 <body>
-{{side-bar}}
+<div class="flexbox">
+  {{side-bar}}
+  <div class="main">
+    {{download-info}}
+  </div>
+</div>
 </body>
 
 {{outlet}}
