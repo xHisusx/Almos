@@ -1,1 +1,70 @@
+<style>
+.ui.custom-green.button {
+  border: none;
+  border-radius: 0px 0px 10px 10px;
+  background-color: #4CAF50;
+  color: #fff;
 
+
+}
+
+ /* TODO installing nib */
+/* .blinking-div {
+    -webkit-animation-name: blinker;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+
+    -moz-animation-name: blinker;
+    -moz-animation-duration: 3s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+
+    animation-name: blinker;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@-moz-keyframes blinker {
+    0% { opacity: 3.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 3.0; }
+}
+
+@-webkit-keyframes blinker {
+    0% { opacity: 3.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 3.0; }
+}
+
+@keyframes blinker {
+    0% { opacity: 3.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 3.0; } */
+}
+/* end TODO */
+
+</style>
+
+{{#ui-sticky}}
+     {{#ui-dropdown selected=selected}}
+     <button class="ui custom-green labeled icon button">
+      <i class="user circle icon"></i>
+      <div class="blinking-div">
+        konstantin
+      </div>
+      </button>
+
+
+
+      <div class="menu">
+        <div data-value="user-orders" class="item">Мои заказы</div>
+        <div data-value="user-sales" class="item">Мои скидки</div>
+        <div data-value="user-settings" class="item">Настройки</div>
+        <div class="ui divider"></div>
+        <div data-value="logout" class="item">Выход</div>
+      </div>
+    {{/ui-dropdown}}
+
+{{/ui-sticky}}
