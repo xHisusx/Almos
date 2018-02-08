@@ -1,6 +1,8 @@
 {
   "name": "almos",
   "dependencies": {
-    "semantic-ui": "^2.2.13"
+    "semantic-ui": "^2.2.13",
+    "animate.css": "^3.5.2",
+    "hover": "^2.1.1"
   }
 }

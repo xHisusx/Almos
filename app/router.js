@@ -8,7 +8,7 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
   this.route('catalog');
-  this.route('search');
+  this.route('contact');
   this.route('download');
   this.route('home');
   this.route('404', { path: '/*path' });
