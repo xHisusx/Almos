@@ -1,9 +1,214 @@
-<div class="ui raised segment">
-  <div class="ui container">
-    <div class="ui grid">
-      <h1>зфЫфыуй</h1>
+<style media="screen">
+
+/* REFACTORED CSS MODULE */
+
+  .container-inner {
+    width: 1000px;
+    height: 500px;
+  }
+
+  .about-container, .feedback-container, .delivery-container, .image-warp, .image-round-frame, .descr-warp {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-justify-content:center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .about-container, .feedback-container, .delivery-container {
+    min-width: 100vw;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+  }
+
+  .about-container {
+    background-color: #607D8B;
+  }
+
+  .feedback-container {
+    background-color: #03A9F4;
+  }
+
+  .delivery-container {
+    background-color: #8BC34A;
+  }
+
+  .image-warp {
+    height: 100%;
+    width: 100%;
+  }
+
+  .image-round-frame {
+    height: 400px;
+    width: 400px;
+  }
+
+  .about-image, .feedback-image, .deliver-image {
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    box-shadow: inset 0px 0px 25px rgba(0,0,0,0.5);
+    border-radius: 50%;
+  }
+
+  .about-image {
+    background-image: url("/assets/images/about-image.svg");
+  }
+
+  .feedback-image {
+    background-image: url("/assets/images/feedback-image.svg");
+  }
+
+  .deliver-image {
+    background-image: url("/assets/images/deliver-image.svg");
+  }
+
+  .descr-warp {
+    height:100%;
+  }
+
+  h1 {
+    color:white;
+  }
+
+  p {
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+  }
+
+  .btn-learn-more, .btn-write-email {
+    height: 40px;
+    width: 210px;
+    color: white;
+    cursor: pointer;
+    font-size:18px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    transition: all .2s ease;
+  }
+
+  .btn-learn-more {
+    background-color: #8BC34A;
+  }
+
+  .btn-write-email {
+    background-color: #03A9F4;
+  }
+
+/* hvr lib animations */
+
+  .hvr-fade, .hvr-fade-2 {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    overflow: hidden;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: color, background-color;
+    transition-property: color, background-color;
+  }
+  .hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {
+    background-color: #fff;
+    color: #8BC34A;
+  }
+  .hvr-fade-2:hover, .hvr-fade:focus, .hvr-fade:active {
+    background-color: #fff;
+    color: #03A9F4;
+  }
+
+</style>
+
+<div class="container-warp">
+  <div class="about-container">
+    <div class="container-inner">
+      <div class="ui grid container" style="height:100%;margin-top:0;">
+        <div class="nine wide column">
+          <div class="image-warp">
+            <div class="image-round-frame">
+              <div class="about-image">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="seven wide column">
+          <div class="descr-warp">
+            <div class="ui text left aligned container">
+              <h1>Заслуженное доверие</h1>
+              <p>Наша компания 25 лет специализируется на оптовых и мелко-оптовых поставках отечественных радиокомплектующих.
+              <br><br> Именно поэтому мы можем предложить вам более 250 000 позиций по привлекательным ценам для всех регионов России и стран СНГ.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="feedback-container">
+  <div class="container-inner">
+    <div class="ui grid container" style="height:100%;margin-top:0;">
+      <div class="seven wide column">
+        <div class="descr-warp">
+          <div class="ui text left aligned container">
+            <h1>Всегда на связи</h1>
+            <p> Мы обрабатываем заявки как можно скорее, чтобы не заставлять вас ждать.
+              <br>С нами легко вести переписку через электронную почту.
+              <br><br>Также у нас есть телеграм-бот, который поможет подобрать необходимые позиции и свяжет с оператором.
+            </p>
+            <button type="button" class="btn-write-email hvr-fade-2">Написать</button>
+            <!-- /*TODO universe buttom with diff content*/ -->
+          </div>
+        </div>
+      </div>
+      <div class="nine wide column">
+        <div class="image-warp">
+          <div class="image-round-frame">
+            <div class="feedback-image">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-{{yield}}
+<div class="delivery-container">
+  <div class="container-inner">
+    <div class="ui grid container" style="height:100%;margin-top:0;">
+      <div class="nine wide column">
+        <div class="image-warp">
+          <div class="image-round-frame">
+            <div class="deliver-image">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="seven wide column">
+        <div class="descr-warp">
+          <div class="ui text left aligned container" style="width:100%;;">
+            <h1>Доставка товаров в Митино</h1>
+            <p>Всю рабочую неделю мы принимаем ваши заказы, а в субботу утром доставляем их прямиком на митинский радиорынок.<br><br> Данная доставка не будет вам ничего стоить!<br> Главное приехать в назначенное время.</p>
+            <button type="button" class="btn-learn-more hvr-fade">Подробнее</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
