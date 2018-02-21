@@ -1,92 +1,329 @@
 <style>
-  .download-image-warp{
-    height: 10em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
-    background-color:#eeeeee;
-  }
+.download-container, .download-descrp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 
-  .end{
-    margin:0;
-  }
+  -webkit-justify-content:center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
 
-  .description-title {
-    font-size: 16px;
+.download-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background-color: #0080C1;
+
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.download-container-inner {
+    width: 1150px;
+    height: 539px;
+}
+
+.download-scene-wrap {
+
+}
+
+.download-preview {
+  background-image: url("/assets/images/price.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
+  height: 420px;
+  width:610px;
+}
+
+.download-descrp {
+  height: 420px;
+  width: 470px;
+  color: white;
+
+  flex-flow: column nowrap;
+  -ms-flex-flow: column nowrap;
+
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-box-pack: center;
+  -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+    font-family: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 26px;
+
+    vertical-align: baseline;
+}
+
+.download-title, .download-sub-title {
+border: 0;
+margin: 0;
+outline: 0;
+padding: 0;
+}
+
+.download-sub-title {
+font-size: 14px;
+font-weight: 400;
+line-height: 18px;
+
+opacity: .6;
+}
+
+.btn-download-price {
+  height: 40px;
+  width: 210px;
+  position: relative;
+
+  color: white;
+  background-color: #0080C1;
+  cursor: pointer;
+
+  font-size:18px;
+  font-weight: 400;
+  line-height: 18px;
+  outline: none;
+  overflow: hidden;
+
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  border: 1px solid;
+
+  margin: 22px 0 8px;
+}
+
+.sprite {
+  opacity: .75;
+  z-index: 10;
+
+  background-position: 0;
+  display: block;
+  position: absolute;
+}
+
+.sparkle.one {
+  -webkit-animation-delay: .9s;
+  animation-delay: .9s;
+  left: 80px;
+  top: 10px;
+}
+.sparkle.two {
+  animation-delay: 0.6s;
+  bottom: 100px;
+  left: -30px;
+}
+.sparkle.three {
+  animation-delay: 1.2s;
+  bottom: -15px;
+  left: 180px;
+  z-index: 3;
+}
+.sparkle.four {
+  bottom: 80px;
+  right: -20px;
+  z-index: 3;
+}
+
+.pop.one {
+  animation-delay: 1s;
+  left: 50px;
+  top: 120px;
+}
+.pop.two {
+  right: 40px;
+  top: -45px;
+}
+.pop.three {
+  animation-delay: 1.8s;
+  bottom: 12px;
+  left: 100px;
+  opacity: 0.45;
+}
+
+.cross.one {
+  animation-delay: 0.2s;
+  right: -32px;
+  top: 5px;
+}
+.cross.two {
+  animation-delay: 0.9s;
+  bottom: -35px;
+  right: 0px;
+}
+.cross.three {
+  animation-delay: 1.4s;
+  left: -8px;
+  top: 200px;
 }
 
 
+.sprite.sparkle {
+  -webkit-animation: sparkle 1.5s steps(17,start) forwards infinite;
+  animation: sparkle 1.5s steps(17,start) forwards infinite;
+  background-image: url("/assets/images/sparkle.png");
+  background-position: -731px;
+  background-size: 774px 43px;
+  height: 43px;
+  width: 43px;
+}
+.sprite.pop {
+    background-image: url("/assets/images/pop.png");
+    background-size: 840px 24px;
+    height: 24px;
+    width: 24px;
+    animation: pop 2.91667s steps(34, start) infinite forwards;
+    background-position: -816px center;
+}
+.sprite.cross {
+  background-image: url("/assets/images/cross.png");
+  background-size: 625px 25px;
+  height: 25px;
+  width: 25px;
+  animation: cross 2.08332s steps(23, start) infinite forwards;
+  background-position: -600px center;
+}
 
+@-webkit-keyframes sparkle{0%{background-position:0;}40%{background-position:-731px;}to{background-position:-731px;}}
+@keyframes sparkle{0%{background-position:0;}40%{background-position:-731px;}to{background-position:-731px;}}
+
+@-webkit-keyframes pop{0%{background-position:0;}40%{background-position:-816px;}to{background-position:-816px;}}
+@keyframes pop{0%{background-position:0;}40%{background-position:-816px;}to{background-position:-816px;}}
+
+@-webkit-keyframes cross{0%{background-position:0;}40%{background-position:-600px;}to{background-position:-600px;}}
+@keyframes cross{0%{background-position:0;}40%{background-position:-600px;}to{background-position:-600px;}}
+
+.float-shadow {
+-webkit-animation: floatShadow 2.3s forwards infinite;
+animation: floatShadow 2.3s forwards infinite;
+background: radial-gradient(ellipse 38% 30%,#000,#0080C1);
+opacity: 0.15;
+height: 38px;
+width: 628px;
+}
+
+/* hvr lib animations */
+
+.hvr-fade {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  overflow: hidden;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
+}
+.hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {
+  background-color: #fff;
+  color: #0080C1;
+}
+
+@-webkit-keyframes hvr-bob {
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@keyframes hvr-bob {
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@-webkit-keyframes hvr-bob-float {
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@keyframes hvr-bob-float {
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+.hvr-bob {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+
+  -webkit-animation-name: hvr-bob-float, hvr-bob;
+  animation-name: hvr-bob-float, hvr-bob;
+  -webkit-animation-duration: .3s, 1.5s;
+  animation-duration: .3s, 1.5s;
+  -webkit-animation-delay: 0s, .3s;
+  animation-delay: 0s, .3s;
+  -webkit-animation-timing-function: ease-out, ease-in-out;
+  animation-timing-function: ease-out, ease-in-out;
+  -webkit-animation-iteration-count: 1, infinite;
+  animation-iteration-count: 1, infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-direction: normal, alternate;
+  animation-direction: normal, alternate;
+}
 
 </style>
-
-
-<div class="ui raised segment">
-  <div class="ui container">
-    <div class="ui grid">
-      <div class="twelve wide column">
-        <h1 class="ui header">Скачайте наш прайс-лист сейчас.</h1>
-        <h3 class="ui header">  Чтобы ознакомиться с ним в удобное для Вас время.</h3>
-      </div>
-      <div class="four wide column">
-        <!-- <div style="color:#21ba45"> -->
-          <i class="fas fa-check fa-7x"></i>
-        <!-- </div> -->
-      </div>
-    </div>
-    <br>
-    <div class="ui divider"></div>
-    <br>
-    <p>ng Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-    </p>
-    <br>
-    <div class="ui horizontal divider">
-      <i class="grey download icon"></i>
-    </div>
-    <br>
-    <div class="ui relaxed grid">
-    <div class="five wide column">
-      <div class="ui card">
-        <div class="download-image-warp">
-          <div style="color:#5a5a5a;">
-            <i class="fas fa-file-alt fa-7x"></i>
+  <div class="download-container">
+    <div class="download-container-inner">
+      <div class="ui grid container" style="height:100%;margin-top:0;">
+          <div class="ten wide column" style="display:flex;justify-content:flex-end;">
+            <div class="download-scene-wrap">
+            <i class="sprite pop one"></i>
+            <i class="sprite pop two"></i>
+            <i class="sprite pop three"></i>
+            <i class="sprite sparkle one"></i>
+            <i class="sprite sparkle two"></i>
+            <i class="sprite sparkle three"></i>
+            <i class="sprite sparkle four"></i>
+            <i class="sprite cross one"></i>
+            <i class="sprite cross two"></i>
+            <i class="sprite cross three"></i>
+            <div class="hvr-bob download-preview"></div>
+            </div>
+          </div>
+          <div class="six wide column">
+            <div class="download-descrp">
+              <h1 class="download-title">Загрузите прайс сейчас</h1>
+              <div class="download-sub-title">
+                Чтобы ознакомиться с ним в удобное время
+              </div>
+              <button type="button" class="btn-download-price hvr-fade">Скачать</button>
+            </div>
+          </div>
+          <div class="ten wide column" style="display:flex;justify-content:flex-end;">
+            <div class="float-shadow"></div>
           </div>
         </div>
-      <div class="fluid ui button" tabindex="0">Скачать</div>
+      </div>
     </div>
-    </div>
-    <div class="six wide column">
-      <div class="ui card">
-        <div class="download-image-warp">
-            <div style="color:#5a5a5a;">
-              <i class="fas fa-file-excel fa-7x"></i>
-            </div>
-        </div>
-      <div class="fluid ui button" tabindex="0">Скачать</div>
-    </div>
-    </div>
-    <div class="five wide column">
-      <div class="ui card">
-        <div class="download-image-warp">
-            <div style="color:#5a5a5a;">
-              <i class="fas fa-file-archive fa-7x"></i>
-            </div>
-        </div>
-      <div class="fluid ui button" tabindex="0">Скачать</div>
-    </div>
-    </div>
-    </div>
-    <div class="ui text container">
-    <br>
-    <div class="ui divider"></div>
-    <br>
-    <h1>Используйте наш AlmosAPI.</h1>
-    <h5>Будьте в числе первых, кто получает актуальные данные.</h5>
-    <div class="ui divider"></div>
-    <p>AlmosAPI -  это инструмент для получения публичных данных из Almos по заданным ключевым словам.</p>
-    <p>В отличие от методов обычного API, не нужно постоянно повторять запросы, чтобы получить обновления. Мы сами будем присылать новый подходящий контент по мере его появления.</p>
-  </div>
-
-</div>
-</div>

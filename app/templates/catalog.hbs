@@ -12,30 +12,161 @@
   .main {
     flex: 1 1 auto;
   }
+
+  .catalog-container, .search-bar {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-justify-content:center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+
+  .catalog-container {
+    min-width: 100vw;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+  }
+
+  .container-inner {
+    width: 960px;
+    height: 100vh;
+
+
+    background-color: #ffffff;
+
+    box-shadow: 1px 0px 4px 0px #ccc;
+
+
+  }
+
+
+  .search-bar {
+    margin-top: 15px;
+    width: 930px;
+    height: 59px;
+    background-color:#F5F5F5;
+    color: #4a4a4a;
+    border-radius: 3px;
+
+
+  }
+
+  .search-input:focus::-webkit-input-placeholder{
+    color: transparent;
+    opacity: 0;
+      transition: opacity 0.3s ease;
+  }
+  .search-input::-webkit-input-placeholder{
+      opacity: 1;
+      transition: opacity 0.3s ease;
+      color: #ccc;
+  }
+
+  .search-input {
+    width:100%;
+    border:none;
+    font-size: 18pt;
+    float: left;
+
+    background: #F5F5F5;
+    color:#000;
+  }
+
+  .search-input:hover, .search-input:focus, .search-input:active{
+    outline:none;
+  }
+
+  .search-icon{
+  color: #ccc;
+}
+
+.search-table {
+  width:930px;
+  min-height:1000px;
+}
+
+.responsive-table {
+  margin-left:0px;
+}
+
+
+
 </style>
 
-<body>
-<div class="flexbox">
-  {{left-menu-bar}}
+  <body>
+  <div class="flexbox">
+    {{left-menu-bar}}
 
-  <div class="main">
-    <div style="overflow:hidden">
-      <div class="ui grid">
-
-          <!-- padding column -->
-        <div class="two wide column"></div>
-          <!-- . -->
-
-        <div class="twelve wide column">
-          {{catalog-info}}
-
-        <div class="two wide column"></div>
-
+    <div class="main">
+      {{side-basket}}
+      <div class="catalog-container">
+        <div class="container-inner">
+          <div class="ui grid container">
+            <div class="sixteen wide column">
+              <div class="search-bar">
+                <div class="ui grid container">
+                  <div class="one wide column">
+                          <span class="search-icon"><i class="fas fa-search fa-2x"></i></span>
+                  </div>
+                  <div class="fifteen wide column">
+                    {{input type="text" class="search-input" value=name id="search" name="search" placeholder="Поиск..."}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sixteen wide column">
+              <ul class="responsive-table">
+                <li class="table-header">
+                  <div class="col col-1">Наименование</div>
+                  <div class="col col-2">Количество</div>
+                  <div class="col col-3">Цена</div>
+                  <div class="col col-4">Примечание</div>
+                </li>
+                  {{#each model as |catalog|}}
+                  <li class="table-row">
+                   <div class="col col-1" data-label="Наименование">{{catalog.name}}</div>
+                  <div class="col col-2" data-label="Количество">{{catalog.quantity}}</div>
+                  <div class="col col-3" data-label="Цена">{{catalog.cost}}</div>
+                  <div class="col col-4" data-label="Примечание">{{catalog.info}}</div>
+                </li>
+                  {{/each}}
+              </ul>
+              <!-- <table class="search-table">
+                <col width="35%"/>
+                <col width="15%"/>
+                <col width="15%"/>
+                <col width="35%"/>
+                <thead>
+                  <tr>
+                  <th><div {{!class="sortable down"}}>Наименование</div></th>
+                  <th><div {{!class="sortable up"}}>Количество</div></th>
+                  <th>Цена</th>
+                  <th>Примечание</th>
+                </tr>
+              </thead>
+              <tbody>
+                  {{#each model as |catalog|}}
+                  <tr>
+                    <td>{{catalog.name}}</td>
+                    <td>{{catalog.quantity}}</td>
+                    <td>{{catalog.cost}}</td>
+                    <td>{{catalog.info}}</td>
+                  </tr>
+                  {{/each}}
+              </tbody>
+              </table> -->
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-</body>
+  </body>
 
 {{outlet}}

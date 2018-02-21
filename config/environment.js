@@ -3,10 +3,20 @@
 
 module.exports = function(environment) {
   let ENV = {
+
     modulePrefix: 'almos',
     environment,
     rootURL: '/',
     locationType: 'auto',
+
+    firebase: {
+    apiKey: "AIzaSyBpgjU-atFHNBuxOwhJmNdw05-7Q59MMjE",
+    authDomain: "almos2025.firebaseapp.com",
+    databaseURL: "https://almos2025.firebaseio.com",
+    projectId: "almos2025",
+    storageBucket: "",
+  },
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

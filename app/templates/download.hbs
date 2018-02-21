@@ -1,39 +1,47 @@
 <style>
-  body {background-color: #eeeeee;}
+  body {background-color: #0080C1;}
+
 
   .flexbox {
+    height:100vh;
+    width:100%;
     display: flex;
+
   }
 
-  .sidebar {
-    flex: 0 0 auto;
-    width: 260px;
+  .left-menu-bar-warp {
+    height:100%;
+    width: 80px;
   }
+
   .main {
+    width: 100vw;
+    height: 100vh;
     flex: 1 1 auto;
   }
+
+  .flexbox, .main {
+        align-items: center;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+  }
+
+
 </style>
 
 <body>
 <div class="flexbox">
-  {{left-menu-bar}}
-
+  <div class="left-menu-bar-warp">
+    {{left-menu-bar}}
+  </div>
   <div class="main">
-    <div style="overflow:hidden">
-      <div class="ui grid">
-        {{side-basket}}
-          <!-- padding column -->
-        <div class="two wide column"></div>
-          <!-- . -->
-
-        <div class="twelve wide column">
-          {{download-info}}
-        </div>
-
-        <div class="two wide column"></div>
-        
-      </div>
-    </div>
+    {{side-basket}}
+    {{download-info}}
   </div>
 </div>
 </body>
