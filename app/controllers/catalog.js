@@ -19,8 +19,8 @@ export default Controller.extend({
   //       cost: cost,
   //       info: info
   //     });
-
-      newItem.save();
-    }
-  }
+      //
+      // newItem.save();
+  //   }
+  // }
 });
