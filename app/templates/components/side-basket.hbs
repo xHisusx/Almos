@@ -1,17 +1,6 @@
-  <button type="button" class="basket-toggle-button" name="button" onclick="openSlideMenu()"></button>
-
   <div id="side-menu" class="side-basket-outer-wrapper">
     <div class="side-basket-inner-wrapper">
       <div class="side-basket-collection">
-        <div class="basket-close-warp">
-          <button type="button" class="button-close" onclick="closeSlideMenu()">
-            <div class="icon-close-warp">
-              <div style="color:black;">
-                <i class="fas fa-angle-left"></i>
-              </div>
-            </div>
-          </button>
-        </div>
         <div class="side-basket-outer-block">
           <div class="side-basket-inner-addit-block">
             <div class="basket-title">
@@ -26,19 +15,79 @@
             </div>
           </div>
         </div>
-        <div class="side-basket-outer-block">
-          <div class="side-basket-inner-addit-block">
-            {{btn-basket}}
-          </div>
+        <div class="btn-warp">
+          <button type="button" name="button" class="btn-deliver btn-white" {{action "openModalDialog"}}>Продолжить</button>
+        </div>
+    </div>
+  </div>
+
+  <div class="modal-container" id="modalDialog">
+    <div class="close-btn" {{action "closeModalDialog"}}>
+      <i class="fas fa-times"></i>
+    </div>
+    <div class="container">
+      <div class="panel deliver-table" id="deliver-table">
+        <div class="deliver-plan">
+          <img src="https://s22.postimg.cc/8mv5gn7w1/paper-plane.png" alt="" class="deliver-img">
+          <h2 class="deliver-header">Срочно</h2>
+          <ul class="deliver-features">
+            <li class="deliver-features-item">Только в Москве</li>
+            <li class="deliver-features-item">Индивидуальный <br> план</li>
+          </ul>
+          <span class="deliver-price">700₽</span>
+          <button type="button" class="btn-deliver btn-white"{{action "choosePlan"}} >Выбрать</button>
+        </div>
+        <div class="deliver-plan">
+          <img src="https://s28.postimg.cc/ju5bnc3x9/plane.png" alt="" class="deliver-img">
+          <h2 class="deliver-header">Бесплатно</h2>
+          <ul class="deliver-features">
+            <li class="deliver-features-item">Доставка в Москву, район Митино</li>
+            <li class="deliver-features-item">Каждую субботу <br> с 10 до 13</li>
+          </ul>
+          <span class="deliver-price">0₽</span>
+          <button type="button" class="btn-deliver btn-blue" {{action "choosePlan"}}>Выбрать</button>
+        </div>
+        <div class="deliver-plan">
+          <img src="https://s21.postimg.cc/tpm0cge4n/space-ship.png" alt="" class="deliver-img">
+          <h2 class="deliver-header">Далеко</h2>
+          <ul class="deliver-features">
+            <li class="deliver-features-item">Через вашу ТК</li>
+            <li class="deliver-features-item">В следующую рабочую неделю</li>
+          </ul>
+          <span class="deliver-price">500₽</span>
+          <button type="button" class="btn-deliver btn-white"{{action "choosePlan"}} >Выбрать</button>
+        </div>
+      </div>
+
+      <div class="panel deliver-table" id="data-table" style="display:none;">
+        <div class="deliver-plan">
+          <h3 class="deliver-header">Email для обратной связи</h3>
+          <ul class="deliver-features">
+            <div class="delimiter"></div>
+            {{input type="text" class="input" type="text" value=name placeholder="Ваше имя"}}
+            {{input type="text" class="input" type="text" value=email placeholder="Ваш email"}}
+          </ul>
+          <button type="button" class="btn-deliver btn-blue" {{action "createOrder"}}>Отправить</button>
+        </div>
+      </div>
+
+      <div class="panel deliver-table" id="info-table" style="display:none;">
+        <div class="deliver-plan">
+          <h2 class="deliver-header">Заказ успешно создан</h2>
+          <h4 class="deliver-header" style="color:#69aeff">В ближайшее время с Вами свяжется наш специалист</h4>
+          <!-- <ul class="deliver-features">
+            <li class="deliver-features-item">В ближайшее время с Вами свяжется наш специалист</li>
+          </ul> -->
         </div>
       </div>
     </div>
+  </div>
+</div>
 
 
 
 
-
-      <!-- <button type="button" name="button" class="basket-buy-button" {{action 'fuck'}}>
+      <!-- <button type="button" name="button" class="basket-buy-button" {{action }}>
         <span class="button-buy-desr">Продолжить
           ::after
         </span>
@@ -46,15 +95,3 @@
           <i class="fas fa-angle-double-right"></i>
         </div>
       </button> -->
-      </div>
-
-
-  <script>
-    function openSlideMenu(){
-      document.getElementById('side-menu').style.width = '300px';
-    }
-
-    function closeSlideMenu(){
-      document.getElementById('side-menu').style.width = '0';
-    }
-  </script>
