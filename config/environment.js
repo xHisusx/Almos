@@ -10,11 +10,12 @@ module.exports = function(environment) {
     locationType: 'auto',
 
     firebase: {
-    apiKey: "AIzaSyBpgjU-atFHNBuxOwhJmNdw05-7Q59MMjE",
-    authDomain: "almos2025.firebaseapp.com",
-    databaseURL: "https://almos2025.firebaseio.com",
-    projectId: "almos2025",
-    storageBucket: "",
+    apiKey: "AIzaSyC_LlggwWiojV0wMgtgdJDtOFQpPAd3cio",
+    authDomain: "almos2022.firebaseapp.com",
+    databaseURL: "https://almos2022.firebaseio.com",
+    projectId: "almos2022",
+    storageBucket: "almos2022.appspot.com",
+    messagingSenderId: "995064880165"
   },
 
     EmberENV: {

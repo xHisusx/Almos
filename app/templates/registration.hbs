@@ -1,0 +1,187 @@
+<style media="screen">
+@import url('https://fonts.googleapis.com/css?family=Roboto&subset=cyrillic');
+
+body {
+    background-color: #edeef0;
+}
+
+.registration-container, .registration-inner-container, .registration-content{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.registration-container, .registration-content {
+  -webkit-justify-content:center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.registration-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #edeef0;
+
+
+}
+
+.registration-inner-container {
+    width: 440px;
+    padding: 40px;
+
+    background-color: white;
+    box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+
+    flex-direction: column;
+
+    /* background:hsla(220, 10%, 15%, 0.8); */
+}
+
+.registration-title {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+
+  border: 0;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+}
+
+.registration-viewbox {
+}
+
+h1 {
+    min-height: 1rem;
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.registration-content {
+  width: 100%;
+  height:100%;
+}
+
+.control-group {
+  height: 50px;
+  -ms-flex: 1;
+  -webkit-box-flex: 1;
+  flex: 1;
+}
+
+.registration-title-field {
+  color: #87909c;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 30px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.registration-btn {
+margin-top: 25px;
+display:block;
+line-height: 58px;
+padding: 0;
+text-align: center;
+text-decoration: none;
+width: 80%;
+
+background-color: #7289da;
+
+border: none;
+border-radius: 3px;
+color: #fff;
+cursor: pointer;
+font-size: 16px;
+font-weight: 500;
+line-height: 16px;
+padding: 10px 20px;
+position: relative;
+}
+
+.registration-footer {
+  margin-top:20px;
+  /* margin-bottom: 0; */
+color: #ccc;
+font-size: 12px;
+line-height: 14px;
+
+}
+
+
+/*default input*/
+.control-group {
+  height: 50px;
+  -ms-flex: 1;
+  -webkit-box-flex: 1;
+  flex: 1;
+}
+.space {
+  margin-top: 10px;
+}
+.auth-sub-title {
+  font-family: 'Roboto', sans-serif;
+  color: #87909c;
+display: block;
+font-size: 11px;
+font-weight: 700;
+text-transform: uppercase;
+}
+.none-select {
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+}
+.col-3{ position: relative;} /* necessary to give position: relative to parent. */
+input[type="text"]{font: 15px/24px "Lato", Arial, sans-serif; color: #333; width: 100%; box-sizing: border-box; letter-spacing: 1px;}
+.effect-2 {border: 0;outline: none;  border-bottom: 1px solid #ccc;}
+.effect-2 ~ .focus-border{position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background-color: #7289da; transition: 0.4s;}
+.effect-2:focus ~ .focus-border{width: 100%; transition: 0.4s; left: 0;}
+/**/
+</style>
+
+
+<body>
+<div class="flexbox">
+  <div class="left-menu-bar-warp">
+    {{left-menu-bar}}
+  </div>
+  <div class="main">
+    {{side-basket}}
+
+    <div class="registration-container">
+      <div class="registration-inner-container">
+          <div class="registration-viewbox">
+            <i class="fas fa-users fa-5x" style="color:#87909c;"></i>
+          </div>
+          <!-- <div class="registration-content"> -->
+            <div class="registration-title-field">
+              <h1>Регистрация</h1>
+            </div>
+
+
+            {{#each model as |input|}}
+            <div class="control-group space">
+              <label class="auth-sub-title none-select">{{input.title}}</label>
+              <div class="col-3">
+                <input class="effect-2" type="password">
+                  <span class="focus-border"></span>
+              </div>
+            </div>
+            {{/each}}
+
+
+            <button type="button" name="button" class="registration-btn">Зарегистрироваться</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>

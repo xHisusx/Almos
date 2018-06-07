@@ -1,1 +1,1 @@
-ember serve
+ember s --proxy http://localhost:1337

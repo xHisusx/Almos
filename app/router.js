@@ -7,11 +7,19 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('catalog');
+  this.route('catalog', function() {
+    this.route('cart');
+  });
   this.route('contact');
   this.route('download');
   this.route('home');
   this.route('404', { path: '/*path' });
+  this.route('products');
+  this.route('auth', function() {
+    this.route('registration');
+  });
+  this.route('registration');
+
 });
 
 export default Router;

@@ -1,0 +1,9 @@
+<li class="table-row hvr-grow" {{action 'handleItem' item.name}}>
+  {{yield result}}
+<div class="col col-1" data-label="Наименование">{{item.name}}</div>
+<div class="col col-2" data-label="Год">{{item.year}}</div>
+<div class="col col-3" data-label="Количество">{{item.quantity}}</div>
+<div class="col col-4" data-label="Цена">{{item.cost}}</div>
+<div class="col col-5" data-label="Примечание">{{item.info}}</div>
+</li>
+<!-- {{action "selected" i}} class="{{if (is-equal i selectedIndex) 'highlight' ''}}" -->

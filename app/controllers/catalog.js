@@ -1,26 +1,28 @@
 import Controller from '@ember/controller';
 
+
 export default Controller.extend({
-  // actions: {
-  //
-  //   findName: function() {
-  //     var name = this.get('name');
-  //     alert(name);
-  //   },
-  //   addItem: function() {  example for understand
-  //     var name = this.get('name');
-  //     var quantity = 10;
-  //     var cost = 380;
-  //     var info = 'info';
-  //
-  //     var newItem = this.store.createRecord('catalog', {
-  //       name: name,
-  //       quantity: quantity,
-  //       cost: cost,
-  //       info: info
-  //     });
-      //
-      // newItem.save();
-  //   }
-  // }
+  items: [],
+  actions: {
+    addToBasket: function(){
+        // var items = this.get('store').findAll('item');
+        // console.log(items);
+      },
+      filterByName(param) {
+        if (param !== '') {
+          return this.get('store').query('item', {name: param})
+        }
+      },
+      sortColumn(note) {
+        // var val = $(event.target).attr("data-value");
+
+        alert(note);
+      },
+      getBasketItem(param){
+        if (param !== '') {
+          var item = this.get('store').query('item', {name: param});
+          //how to add item in items to use in side-basket
+        }
+    }
+    }
 });

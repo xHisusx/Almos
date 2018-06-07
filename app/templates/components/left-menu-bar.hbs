@@ -51,9 +51,24 @@
       </div>
       {{/link-to}}
 
-      <div class="menu-void-block"></div>
+      {{#link-to 'auth' tagName="div"}}
+      <div class="menu-outer-icon">
+        <div class="menu-inner-icon">
+          <div class="menu-icon-viewbox">
+            <i class="fas fa-user fa-2x"></i>
+          </div>
+          <div class="menu-icon-descr">
+            <div class="menu-icon-descr-span">
+              Мой кабинет
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/link-to}}
 
-  <button type="button" class="basket-toggle-button" name="button" {{action "openSideMenu"}}>
+      <!-- <div class="menu-void-block"></div> -->
+
+  <div class="basket-toggle-button" name="button" onclick={{action "openSideMenu"}}>
       <div class="menu-outer-icon">
         <div class="menu-inner-icon">
           <div class="menu-icon-viewbox">
@@ -66,12 +81,12 @@
           </div>
         </div>
       </div>
-      </button>
+    </div>
 
       </div>
     </div>
   </div>
-    <button type="button" name="button" class="dimmer" id="dimmer" {{action "closeSideMenu"}}></button>
+    <!-- <button type="button" name="button" class="dimmer" id="dimmer" {{action "closeSideMenu"}}></button> -->
 
 
 {{yield}}

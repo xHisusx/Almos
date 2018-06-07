@@ -1,0 +1,104 @@
+<style media="screen">
+
+.product-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-flow:nowrap;
+
+  align-content: space-between;
+  justify-content: space-between;
+
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.product-container{
+  margin: 0 auto;
+  margin-bottom: 10px;
+  width: 96.5%;
+  height: 59px;
+  color:black;
+  border: 1px solid;
+}
+
+.product-container-inner {
+  width:100%;
+  height:16px;
+
+  font-size:14px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 1px;
+  outline: none;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-flow:nowrap;
+
+  align-content: space-between;
+  justify-content: space-between;
+
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+
+.product-name, .product-quantity, .product-cost {
+margin-right:3px;
+margin-left:3px;
+height:inherit;
+white-space: nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+}
+
+.product-name {
+  flex:3;
+}
+
+.product-quantity {
+  flex:1;
+}
+
+.product-cost {
+  flex:1;
+}
+
+.product-close-btn {
+  position: absolute;
+  right: 27px;
+  top: 0px;
+
+  font-size:12px;
+
+}
+</style>
+
+{{#each items as |item|}}
+<div class="product-container" >
+  <div class="product-container-inner">
+    <div class="product-name">
+      {{item.name}}
+    </div>
+    <div class="product-quantity">
+      {{item.quantity}}
+    </div>
+    <div class="product-cost">
+      {{item.cost}}
+    </div>
+  </div>
+  <div class="product-close-btn" {{action "closeProduct"}}>
+      <i class="fas fa-times"></i>
+  </div>
+</div>
+  {{/each}}

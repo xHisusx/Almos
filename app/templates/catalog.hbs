@@ -1,5 +1,5 @@
 <style>
-  body {background-color: #eeeeee;}
+  body {background-color: #edeef0;}
 
   .flexbox {
     display: flex;
@@ -13,7 +13,7 @@
     flex: 1 1 auto;
   }
 
-  .catalog-container, .search-bar {
+  .catalog-container, .container-inner, .search-bar {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -33,68 +33,47 @@
     background-repeat: no-repeat;
   }
 
-  .container-inner {
+ .container-inner {
     width: 960px;
-    height: 100vh;
-
+    min-height: 100vh;
 
     background-color: #ffffff;
-
     box-shadow: 1px 0px 4px 0px #ccc;
-
-
   }
 
-
-  .search-bar {
-    margin-top: 15px;
-    width: 930px;
-    height: 59px;
-    background-color:#F5F5F5;
-    color: #4a4a4a;
-    border-radius: 3px;
-
-
-  }
-
-  .search-input:focus::-webkit-input-placeholder{
-    color: transparent;
-    opacity: 0;
-      transition: opacity 0.3s ease;
-  }
-  .search-input::-webkit-input-placeholder{
-      opacity: 1;
-      transition: opacity 0.3s ease;
-      color: #ccc;
-  }
-
-  .search-input {
-    width:100%;
-    border:none;
-    font-size: 18pt;
-    float: left;
-
-    background: #F5F5F5;
-    color:#000;
-  }
-
-  .search-input:hover, .search-input:focus, .search-input:active{
-    outline:none;
-  }
-
-  .search-icon{
-  color: #ccc;
+.angle {
+  font-size: 18px;
+  color: #c3c3c3;
 }
 
-.search-table {
-  width:930px;
-  min-height:1000px;
+.angle.selected {
+  color: #4a4a4a;
+}
+.angle-left {
+  margin-left:7px;
 }
 
-.responsive-table {
-  margin-left:0px;
+/* Grow */
+.hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
 }
 
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+    transform: scale(1.1);
+}
+
+.highlight{
+	border:1px solid green;
+}
 
 
 </style>
@@ -102,43 +81,24 @@
   <body>
   <div class="flexbox">
     {{left-menu-bar}}
-
     <div class="main">
-      {{side-basket}}
+      {{side-basket items=items}}
       <div class="catalog-container">
         <div class="container-inner">
-          <div class="ui grid container">
-            <div class="sixteen wide column">
-              <div class="search-bar">
-                <div class="ui grid container">
-                  <div class="one wide column">
-                          <span class="search-icon"><i class="fas fa-search fa-2x"></i></span>
-                  </div>
-                  <div class="fifteen wide column">
-                    {{input type="text" class="search-input" value=name id="search" name="search" placeholder="Поиск..."}}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="sixteen wide column">
-              <ul class="responsive-table">
-                <li class="table-header">
-                  <div class="col col-1">Наименование</div>
-                  <div class="col col-2">Количество</div>
-                  <div class="col col-3">Цена</div>
-                  <div class="col col-4">Примечание</div>
-                </li>
-                  {{#each model as |catalog|}}
-                  <li class="table-row">
-                   <div class="col col-1" data-label="Наименование">{{catalog.name}}</div>
-                  <div class="col col-2" data-label="Количество">{{catalog.quantity}}</div>
-                  <div class="col col-3" data-label="Цена">{{catalog.cost}}</div>
-                  <div class="col col-4" data-label="Примечание">{{catalog.info}}</div>
-                </li>
-                  {{/each}}
-              </ul>
-            </div>
-          </div>
+            {{#list-filter filter=(action 'filterByName') as |resultItems i|}}
+            <ul class="responsive-table">
+              <li class="table-header" >
+                <div class="col col-1">Наименование</div>
+                <div class="col col-2 radio-group">Год<i class="fas fa-angle-up angle angle-left radio" note="up" {{action 'sortColumn' value="target.note"}}></i><i class="fas fa-angle-down angle radio" data-value="down"></i></div>
+                <div class="col col-3">Количество<i class="fas fa-angle-up angle angle-left radio"></i><i class="fas fa-angle-down angle"></i></div>
+                <div class="col col-4">Цена<i class="fas fa-angle-up angle angle-left"></i><i class="fas fa-angle-down angle"></i></div>
+                <div class="col col-5">Примечание</div>
+              </li>
+              {{#each resultItems as |itemUnit|}}
+                {{item-list item=itemUnit  gotItem=(action 'getBasketItem')}}
+              {{/each}}
+            </ul>
+              {{/list-filter}}
         </div>
       </div>
     </div>

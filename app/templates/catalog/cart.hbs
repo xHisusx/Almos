@@ -1,0 +1,605 @@
+<style media="screen">
+
+  /* TODO js basket button & handlebars */
+.basket-toggle-button {
+  position: absolute;
+  z-index:30;
+  bottom:0;
+
+  width:80px;
+  height:59px;
+
+  border: none;
+  background: none;
+  outline: 0;
+
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+
+  cursor: pointer;
+  /* pointer-events: none; */
+}
+
+.side-basket-outer-wrapper{
+position:fixed;
+z-index:30;
+height:100vh;
+width:300px;
+top:0;
+left:0;
+
+
+background-color: white;
+overflow-x:hidden;
+transition:0.5s;
+
+font-size:36px;
+overflow: hidden;
+
+box-shadow: 1px 0px 4px 0px #ccc;
+}
+
+.side-basket-inner-wrapper {
+  position:relative;
+  display: block;
+  box-sizing: inherit;
+
+  background-color: white;
+}
+
+.side-basket-collection {
+  display: flex;
+  height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.side-basket-outer-block {
+      cursor: pointer;
+}
+
+.side-basket-inner-addit-block {
+  align-items: center;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+
+  fill: #4a4a4a;
+  position: relative;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  width: 300px;
+  height: 10vh;
+  transform: translateZ(0);
+}
+
+.side-basket-inner-main-block {
+  align-items: center;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  fill: #4a4a4a;
+  position: relative;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  width: 300px;
+  height: 80vh;
+  transform: translateZ(0);
+}
+
+.basket-title {
+height: 2.5vh;
+text-decoration:none;
+font-size:22px;
+color:#ccc;
+display:block;
+
+margin: 2.5vh;
+text-align: center;
+}
+
+.side-basket-viewport-product {
+  width: 260px;
+  height: 100%;
+
+  background-color: white;
+
+  display:inline-block;
+  -webkit-justify-content:center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  overflow: auto;
+}
+/*
+.product-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-flow:nowrap;
+
+  align-content: space-between;
+  justify-content: space-between;
+
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.product-container{
+  margin: 0 auto;
+  margin-bottom: 10px;
+  width: 96.5%;
+  height: 59px;
+  color:black;
+  border: 1px solid;
+}
+
+.product-container-inner {
+  width:100%;
+  height:16px;
+
+  font-size:14px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 1px;
+  outline: none;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-flow:nowrap;
+
+  align-content: space-between;
+  justify-content: space-between;
+
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+
+.product-name, .product-quantity, .product-cost {
+margin-right:3px;
+margin-left:3px;
+height:inherit;
+white-space: nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+}
+
+.product-name {
+  flex:3;
+}
+
+.product-quantity {
+  flex:1;
+}
+
+.product-cost {
+  flex:1;
+}
+
+.product-close-btn {
+  position: absolute;
+  right: 27px;
+  top: 0px;
+
+  font-size:12px;
+
+} */
+
+
+
+   .modal-container, .btn-warp {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-justify-content:center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .modal-container {
+    position: fixed;
+    z-index:30;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    display: none;
+
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+
+  .close-btn {
+    position:absolute;
+    z-index:50;
+    right: 30px;
+    top: 30px;
+    color:white;
+    cursor:pointer;
+  }
+
+
+
+  @media (min-width: 900px) {
+  .background {
+    padding: 0 0 25px;
+  }
+}
+
+
+.panel {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px 25px;
+  position: relative;
+  width: 100%;
+  z-index: 51;
+}
+
+.content-table {
+  box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.08), 0px 20px 31px 3px rgba(0, 0, 0, 0.09), 0px 8px 20px 7px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 900px) {
+  .content-table {
+    flex-direction: row;
+  }
+}
+
+.content-table * {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.content-plan {
+  border-bottom: 1px solid #e1f1ff;
+  padding: 25px;
+}
+
+.content-plan:last-child {
+  border-bottom: none;
+}
+
+@media (min-width: 900px) {
+  .content-plan {
+    border-bottom: none;
+    border-right: 1px solid #e1f1ff;
+    flex-basis: 100%;
+    padding: 25px 50px;
+  }
+
+  .content-plan:last-child {
+    border-right: none;
+  }
+}
+
+.content-img {
+  margin-bottom: 25px;
+  max-width: 100%;
+}
+
+.content-header {
+  color: #888;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.content-features {
+  color: #016FF9;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 50px 0 25px;
+  padding:0;
+}
+
+.content-features-item {
+  list-style-type:none;
+  border-top: 1px solid #e1f1ff;
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 15px 0;
+}
+
+.content-features-item:last-child {
+  border-bottom: 1px solid #e1f1ff;
+}
+
+.content-price {
+  color: #016FF9;
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.btn-warp {
+  width:100%;
+  height:100%;
+}
+
+.btn-content {
+  height: 40px;
+  width: 180px;
+  position: relative;
+
+  cursor: pointer;
+
+  font-size:18px;
+  font-weight: 400;
+  line-height: 18px;
+  outline: none;
+  overflow: hidden;
+
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  border: 1px solid;
+
+  margin: 22px 0 8px;
+}
+
+.btn-white {
+  color: #69aeff;
+  background-color: white;
+}
+
+.btn-blue {
+  color: white;
+  background-color:#60a9ff;
+}
+
+.input:focus::-webkit-input-placeholder{
+  color: transparent;
+  opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.input::-webkit-input-placeholder{
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    color: #ccc;
+}
+
+.input {
+  margin-top:10px;
+  letter-spacing: 1px;
+  width:100%;
+  height:59px;
+  border:none;
+  font-size: 14pt;
+  float: left;
+  text-transform: capitalize;
+
+  background: #F5F5F5;
+  color:#2f2f2f;
+}
+
+.input:hover, .input:focus, .input:active{
+  outline:none;
+}
+
+.delimiter {
+  width:auto;
+  height:0.5px;
+  background-color:#e1f1ff;
+
+}
+/* .side-basket-addit-viewbox {
+  stroke: #4a4a4a;
+  stroke-width: .8px;
+  width: 5vw;
+  height: 5vh;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.side-basket-main-viewbox {
+  stroke: #4a4a4a;
+  stroke-width: .8px;
+  width: 75vw;
+  height: 75vh;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+} */
+
+
+/* .side-basket-buy-btn {
+  position:relative;
+  display: block;
+  margin-top:0;
+  height: 10vh;
+  width:100%;
+} */
+/* .button-buy-desr, .basket-buy-button .button-buy-icon {
+  display: block;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  top: 0;
+}
+
+.basket-buy-button {
+  position: absolute;
+  display: block;
+  width:300px;
+  height:59px;
+  line-height: 59px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background-color:#4CAF50;
+  border-radius: none;
+  border: none;
+  outline: 0;
+  overflow: hidden;
+  color:white;
+}
+
+.basket-buy-button:hover {
+    background-color: #43A047;
+
+}
+
+.button-buy-desr {
+  width: 72%;
+  line-height: inherit;
+  font-size: 20px;
+  text-transform: uppercase;
+  left: 0;
+}
+
+.button-buy-desr:after {
+content: '';
+background-color: #388E3C;
+width: 2px;
+height: 70%;
+position: absolute;
+top: 15%;
+right: -1px;
+}
+
+.button-buy-icon {
+  width: 28%;
+  right: 0;
+
+  height: 28px;
+  color: white;
+} */
+
+</style>
+<div id="side-menu" class="side-basket-outer-wrapper">
+  <div class="side-basket-inner-wrapper">
+    <div class="side-basket-collection">
+      <div class="side-basket-outer-block">
+        <div class="side-basket-inner-addit-block">
+          <div class="basket-title">
+            Корзина
+          </div>
+        </div>
+      </div>
+      <div class="side-basket-outer-block">
+        <div class="side-basket-inner-main-block">
+          <div class="side-basket-viewport-product">
+
+            {{basket-list items=model}}
+
+        </div>
+      </div>
+      <div class="btn-warp">
+        <button type="button" name="button" class="btn-content btn-white" {{action "openModalDialog"}}>Продолжить</button>
+      </div>
+  </div>
+</div>
+
+<div class="modal-container" id="modalDialog">
+  <div class="close-btn" {{action "closeModalDialog"}}>
+    <i class="fas fa-times"></i>
+  </div>
+  <div class="container">
+    <div class="panel content-table" id="content-table">
+      <div class="content-plan">
+        <img src="https://s22.postimg.cc/8mv5gn7w1/paper-plane.png" alt="" class="content-img">
+        <h2 class="content-header">Срочно</h2>
+        <ul class="content-features">
+          <li class="content-features-item">Только в Москве</li>
+          <li class="content-features-item">Индивидуальный <br> план</li>
+        </ul>
+        <span class="content-price">700₽</span>
+        <button type="button" class="btn-content btn-white" id="1" {{action "choosePlan" id}} >Выбрать</button>
+      </div>
+      <div class="content-plan">
+        <img src="https://s28.postimg.cc/ju5bnc3x9/plane.png" alt="" class="content-img">
+        <h2 class="content-header">Бесплатно</h2>
+        <ul class="content-features">
+          <li class="content-features-item">Доставка в Москву, район Митино</li>
+          <li class="content-features-item">Каждую субботу <br> с 10 до 13</li>
+        </ul>
+        <span class="content-price">0₽</span>
+        <button type="button" class="btn-content btn-blue" id="2" {{action "choosePlan" this.id}}>Выбрать</button>
+      </div>
+      <div class="content-plan">
+        <img src="https://s21.postimg.cc/tpm0cge4n/space-ship.png" alt="" class="content-img">
+        <h2 class="content-header">Далеко</h2>
+        <ul class="content-features">
+          <li class="content-features-item">Через вашу ТК</li>
+          <li class="content-features-item">В следующую рабочую неделю</li>
+        </ul>
+        <span class="content-price">500₽</span>
+        <button type="button" class="btn-content btn-white" id="3" {{action "choosePlan" this.id}} >Выбрать</button>
+      </div>
+    </div>
+
+    <div class="panel content-table" id="data-table" style="display:none;">
+      <div class="content-plan">
+        <h3 class="content-header">Email для обратной связи</h3>
+        <ul class="content-features">
+          <div class="delimiter"></div>
+          {{input type="text" class="input" value=name placeholder="Ваше имя"}}
+          {{input type="email"class="input" value=email placeholder="Ваш email"}}
+        </ul>
+        <button type="button" class="btn-content btn-blue" {{action "sendData"}}>Отправить</button>
+      </div>
+    </div>
+
+    <div class="panel content-table" id="info-table" style="display:none;">
+      <div class="content-plan">
+        <h2 class="content-header">Заказ успешно создан</h2>
+        <h4 class="content-header" style="color:#69aeff">В ближайшее время с Вами свяжется наш специалист</h4>
+        <!-- <ul class="content-features">
+          <li class="content-features-item">В ближайшее время с Вами свяжется наш специалист</li>
+        </ul> -->
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+      <!-- <button type="button" name="button" class="basket-buy-button" {{action }}>
+        <span class="button-buy-desr">Продолжить
+          ::after
+        </span>
+        <div class="button-buy-icon">
+          <i class="fas fa-angle-double-right"></i>
+        </div>
+      </button> -->

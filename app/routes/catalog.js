@@ -2,8 +2,16 @@
 import Ember from 'ember';
 
 
+
 export default Ember.Route.extend({
- // model: function() {
- //   return this.store.findAll('catalog');
- // }
+
+
+
+  actions: {
+    error(error, transition) {
+          if (error) {
+              console.log('error404')
+            }
+          }
+    }
 });
